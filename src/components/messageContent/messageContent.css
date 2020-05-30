@@ -1,0 +1,57 @@
+
+.avatar > img {
+    position: absolute;
+    bottom: 0;
+    border: 1px solid black;
+    border-radius: 50%;
+    transform: translate(-123%, 2%);;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-wrap: break-word;
+    margin-bottom: 15px;
+}
+
+.box-content {
+    position: relative;
+    border-radius: 10px;
+    width: 20%;
+    height: 20%;
+    background-color: rgba(148, 148, 148);
+}
+
+.container {
+    padding: 10px;
+}
+
+.box-content::after {
+    bottom: 0px;
+    left: -11px;
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 22.5px 23px 0.5px 0px;
+    border-color: transparent rgba(148, 148, 148) transparent transparent;
+    line-height: 0px;
+    _border-color: #000000 #007bff #000000 #000000;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+}
+
+
+.name {
+    color: purple;
+}
+
+.text {
+    color: antiquewhite;
+}
+
+.date {
+    float: right;
+}
