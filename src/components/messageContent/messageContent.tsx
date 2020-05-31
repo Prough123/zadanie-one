@@ -1,7 +1,9 @@
 import React from 'react'
-import {Avatar} from 'antd'
 import './messageContent.css'
+import MyQuality from "../myQualities/myQualities";
 
+
+const Quality = ['html/pug ', 'css/scss ', 'bs4 ', 'бэм ', 'gulp ', 'html/pug ', 'css/scss ', 'bs4 ', 'бэм ', 'gulp ']
 
 type ContentProps = {
     name: string,
@@ -20,7 +22,7 @@ const MessageContent = (props: PropsType) => {
             <div className='box-content'>
                 <div className='container'>
                     <div className='name'>{props.content[0].name}</div>
-                    <div className='text'>{props.content[0].text}</div>
+                    <MyQuality arrQuality={Quality}/>
                     <div className='date'>{props.content[0].date}</div>
                 </div>
             </div>
