@@ -7,6 +7,17 @@
     transform: translate(-123%, 2%);;
 }
 
+.list-working {
+    list-style: none;
+    display: inline-block;
+    text-align: justify;
+    margin: 0;
+    padding: 0;
+}
+
+ul.list-working{
+    padding: 10px;
+}
 .wrapper {
     position: relative;
     display: flex;
