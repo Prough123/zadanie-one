@@ -7,7 +7,7 @@
     transform: translate(-123%, 2%);;
 }
 
-.list-working {
+.list_working {
     list-style: none;
     display: inline-block;
     text-align: justify;
@@ -15,7 +15,7 @@
     padding: 0;
 }
 
-ul.list-working{
+ul.list_working{
     padding: 10px;
 }
 .wrapper {
@@ -27,7 +27,7 @@ ul.list-working{
     margin-bottom: 15px;
 }
 
-.box-content {
+.box_content {
     position: relative;
     border-radius: 10px;
     width: 20%;
@@ -39,7 +39,7 @@ ul.list-working{
     padding: 10px;
 }
 
-.box-content::after {
+.box_content::after {
     bottom: 0px;
     left: -11px;
     position: absolute;

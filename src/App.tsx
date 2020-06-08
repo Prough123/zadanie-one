@@ -18,6 +18,7 @@ function App() {
     ]
 
 
+
     let [work, setWorking] = useState([
         {id: 1, n: "работа", p: "hight"},
         {id: 2, n: "аниме", p: "low"},
@@ -39,17 +40,9 @@ function App() {
 
     }
 
-
-    //
     if (filter !== "all") {
         workForMessageContent = work.filter(work => work.p === filter)
     }
-    // if (filter === "middle") {
-    //     workForMessageContent = work.filter(work => work.p === "middle")
-    // }
-    // if (filter === "hight") {
-    //     workForMessageContent = work.filter(work => work.p === "hight")
-    // }
 
     return (
         <div className="App">

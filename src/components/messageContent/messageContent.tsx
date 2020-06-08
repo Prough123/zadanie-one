@@ -1,5 +1,5 @@
 import React from 'react'
-import './messageContent.css'
+import ModuleCss from './messageContent.module.css'
 import {FilterValueType} from "../../App";
 
 
@@ -30,7 +30,7 @@ const MessageContent = (props: PropsType) => {
 
     let jsxMyWorking = props.myWorking.map((work) => {
         return (
-            <li className='list-working' key={work.id}>
+            <li className={ModuleCss.list_working} key={work.id}>
                 <span>{work.n}</span>
                 <button onClick={() => {
                     props.removeDoings(work.id)
@@ -42,15 +42,15 @@ const MessageContent = (props: PropsType) => {
 
 
     return (
-        <div className='wrapper'>
-            <div className='avatar'><img width='40px' height='40px' src={props.content[0].avatar} alt=""/></div>
-            <div className='box-content'>
-                <div className='container'>
-                    <div className='name'>{props.content[0].name}</div>
-                    <ul className='list-working'>
+        <div className={ModuleCss.wrapper}>
+            <div className={ModuleCss.avatar}><img width='40px' height='40px' src={props.content[0].avatar} alt=""/></div>
+            <div className={ModuleCss.box_content}>
+                <div className={ModuleCss.container}>
+                    <div className={ModuleCss.name}>{props.content[0].name}</div>
+                    <ul className={ModuleCss.list_working}>
                         {jsxMyWorking}
                     </ul>
-                    <div className='date'>{props.content[0].date}</div>
+                    <div className={ModuleCss.date}>{props.content[0].date}</div>
                 </div>
             </div>
             <div>
