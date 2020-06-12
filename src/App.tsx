@@ -33,13 +33,13 @@ function App() {
 
     let [name, setName] = useState<Array<AddedNameType>>([])
 
+    let [filter, setFilter] = useState<FilterValueType>("all")
+
     function addName(titleName:string) {
         let nameCount = {id: v1(), name: titleName}
         setName([...name, nameCount])
+        console.log(name.length)
     }
-
-    let [filter, setFilter] = useState<FilterValueType>("all")
-
 
     const removeDoings = (id: number) => {
         let filteredWork = work.filter(t => t.id !== id);
@@ -63,7 +63,7 @@ function App() {
                 changeFilter={changeFilter}
             />
 
-            <GreetNewComer addName={addName}/>
+            <GreetNewComer arrayName={name} addName={addName}/>
         </div>
     );
 }
