@@ -1,13 +1,19 @@
 import React, {useState} from 'react';
 import './App.css';
 import MessageContent from "./components/messageContent/messageContent";
-
+import GreetNewComer from "./components/GreetNewComer/GreetNewComer"
+import {v1} from "uuid";
 
 
 export type FilterValueType = "all" | "hight" | "low" | "middle";
 
-function App() {
+type AddedNameType = {
+        id: string,
+        name: string,
+    }
 
+
+function App() {
     const Profile = [
         {
             name: "Илья Божок",
@@ -17,8 +23,6 @@ function App() {
         },
     ]
 
-
-
     let [work, setWorking] = useState([
         {id: 1, n: "работа", p: "hight"},
         {id: 2, n: "аниме", p: "low"},
@@ -26,6 +30,13 @@ function App() {
         {id: 4, n: "реакт", p: "hight"},
         {id: 5, n: "хтмл", p: "low"}
     ])
+
+    let [name, setName] = useState<Array<AddedNameType>>([])
+
+    function addName(titleName:string) {
+        let nameCount = {id: v1(), name: titleName}
+        setName([...name, nameCount])
+    }
 
     let [filter, setFilter] = useState<FilterValueType>("all")
 
@@ -36,8 +47,7 @@ function App() {
     }
     let workForMessageContent = work;
     const changeFilter = (value: FilterValueType) => {
-    setFilter(value)
-
+        setFilter(value)
     }
 
     if (filter !== "all") {
@@ -52,6 +62,8 @@ function App() {
                 removeDoings={removeDoings}
                 changeFilter={changeFilter}
             />
+
+            <GreetNewComer addName={addName}/>
         </div>
     );
 }
