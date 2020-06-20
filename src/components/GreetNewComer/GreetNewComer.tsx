@@ -1,6 +1,5 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
-import {Simulate} from "react-dom/test-utils";
-
+import ButtonNya from "../MyNewButton/MyNewButton";
 
 
 type addNameProps = {
@@ -17,12 +16,10 @@ function GreetNewComer(props: addNameProps) {
 
 
     const HandlerHelloName = () => {
-        if (name) {
+        if (name !== "") {
             alert(`${name} привет`)
             props.addName(name)
             setName('')
-        } else {
-            alert('Пустота')
         }
     }
 
@@ -42,7 +39,7 @@ function GreetNewComer(props: addNameProps) {
                 value={name}
                 onChange={HandlerInput}
                 onKeyPress={HandlerOnKeyPress}/>
-            <button onClick={HandlerHelloName}>Добавить</button>
+            <ButtonNya onClick={HandlerHelloName}></ButtonNya>
             <span>Количество имён {props.arrayName.length}</span>
         </div>
     )

@@ -1,0 +1,32 @@
+
+.inputnya {
+    border: none;
+    box-shadow: 4px 4px  red inset,
+                5px 6px black,
+                -5px -6px black;
+    margin-right: 10px;
+}
+
+.inputnya:focus{
+    box-shadow: 4px 4px  black inset,
+    5px 6px red,
+    -5px -6px green;
+    transition: box-shadow 1s linear;
+    caret-color: red;
+    color: purple;
+}
+
+.inputnya:hover{
+    box-shadow: 4px 4px  black inset,
+    5px 6px white,
+    -5px -6px white;
+    transition: box-shadow 1s linear;
+}
+
+.inputnya:focus {
+    outline: none;
+}
+
+.error-message{
+    color: red;
+}

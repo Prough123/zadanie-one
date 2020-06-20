@@ -1,0 +1,31 @@
+
+.wrapper {
+    margin-top: 20px;
+}
+
+.buttonnya{
+    height: 15px;
+    width: 50px;
+    border: none;
+    background-color: green;
+    box-shadow: 4px 4px  red inset,
+                5px 6px black,
+                -5px -6px black;
+    color: white;
+    transition: box-shadow, background-color 1s linear;
+
+}
+
+.buttonnya:focus {
+    outline: none;
+}
+
+.buttonnya:hover{
+    box-shadow: 4px 4px  black inset,
+    5px 6px green,
+    -5px -6px red;
+    color: black;
+    background-color: white;
+    transition: box-shadow 0.5s linear,
+                background-color 0.5s linear;
+}

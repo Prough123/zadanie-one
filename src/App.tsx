@@ -1,16 +1,21 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent, useState} from 'react';
 import './App.css';
 import MessageContent from "./components/messageContent/messageContent";
 import GreetNewComer from "./components/GreetNewComer/GreetNewComer"
 import {v1} from "uuid";
+import InputNya from "./components/MyNewInput/MyNewInput";
+import ButtonNya from "./components/MyNewButton/MyNewButton";
+
+
 
 
 export type FilterValueType = "all" | "hight" | "low" | "middle";
 
+
 type AddedNameType = {
-        id: string,
-        name: string,
-    }
+    id: string,
+    name: string,
+}
 
 
 function App() {
@@ -31,14 +36,22 @@ function App() {
         {id: 5, n: "хтмл", p: "low"}
     ])
 
-    let [name, setName] = useState<Array<AddedNameType>>([])
+    let [names, setNames] = useState<Array<AddedNameType>>([])
+
+    let [name, setName] = useState<string>("")
 
     let [filter, setFilter] = useState<FilterValueType>("all")
 
-    function addName(titleName:string) {
-        let nameCount = {id: v1(), name: titleName}
-        setName([...name, nameCount])
-        console.log(name.length)
+    let [error, serError] = useState<string | null>(null)
+
+    function addName(titleName: string) {
+        if(titleName.trim() !== ""){
+            let nameCount = {id: v1(), name: titleName}
+            setNames([...names, nameCount])
+            setName("")
+        } else {
+            serError('Title is required')
+        }
     }
 
     const removeDoings = (id: number) => {
@@ -54,6 +67,12 @@ function App() {
         workForMessageContent = work.filter(work => work.p === filter)
     }
 
+    const OnChange = (e: ChangeEvent<HTMLInputElement>) => {
+            setName(e.currentTarget.value)
+    }
+
+
+
     return (
         <div className="App">
             <MessageContent
@@ -62,8 +81,10 @@ function App() {
                 removeDoings={removeDoings}
                 changeFilter={changeFilter}
             />
-
-            <GreetNewComer arrayName={name} addName={addName}/>
+            <GreetNewComer arrayName={names} addName={addName}/>
+            <h1>Задание 4</h1>
+            <InputNya error={error} value={name} onChange={OnChange}  onEnter={() => addName(name)}/>
+            <ButtonNya />
         </div>
     );
 }

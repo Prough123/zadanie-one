@@ -1,6 +1,7 @@
 import React from 'react'
 import ModuleCss from './messageContent.module.css'
 import {FilterValueType} from "../../App";
+import ButtonNya from "../MyNewButton/MyNewButton";
 
 
 type ContentProps = {
@@ -56,10 +57,10 @@ const MessageContent = (props: PropsType) => {
             <div>
                 <h1>Фильтры</h1>
                 <div>
-                    <button onClick={() => {props.changeFilter("all")}}>All</button>
-                    <button onClick={() => {props.changeFilter( "hight")}}>Hight</button>
-                    <button onClick={() => {props.changeFilter( "low")}}>Low</button>
-                    <button onClick={() => {props.changeFilter( "middle")}}>Middle</button>
+                    <ButtonNya onClick={() => {props.changeFilter("all")}}>All</ButtonNya>
+                    <ButtonNya onClick={() => {props.changeFilter( "hight")}}>Hight</ButtonNya>
+                    <ButtonNya onClick={() => {props.changeFilter( "low")}}>Low</ButtonNya>
+                    <ButtonNya onClick={() => {props.changeFilter( "middle")}}>Mid</ButtonNya>
                 </div>
             </div>
         </div>
