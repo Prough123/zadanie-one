@@ -27,6 +27,7 @@
     outline: none;
 }
 
-.error-message{
+.error{
     color: red;
+    font-size: 22px;
 }

@@ -7,8 +7,6 @@ import InputNya from "./components/MyNewInput/MyNewInput";
 import ButtonNya from "./components/MyNewButton/MyNewButton";
 
 
-
-
 export type FilterValueType = "all" | "hight" | "low" | "middle";
 
 
@@ -42,7 +40,7 @@ function App() {
 
     let [filter, setFilter] = useState<FilterValueType>("all")
 
-    let [error, serError] = useState<string | null>(null)
+    let [error, setError] = useState<string | null>(null)
 
     function addName(titleName: string) {
         if(titleName.trim() !== ""){
@@ -50,7 +48,7 @@ function App() {
             setNames([...names, nameCount])
             setName("")
         } else {
-            serError('Title is required')
+            setError('Title is required')
         }
     }
 
@@ -69,8 +67,8 @@ function App() {
 
     const OnChange = (e: ChangeEvent<HTMLInputElement>) => {
             setName(e.currentTarget.value)
+            setError('')
     }
-
 
 
     return (

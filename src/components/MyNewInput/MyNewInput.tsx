@@ -8,6 +8,7 @@ export type InputNyaPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputE
 
 
 const InputNya = (props:InputNyaPropsType) => {
+
     const {onEnter, error, ...restProps} = props;
 
     const HandlerOnKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -18,13 +19,11 @@ const InputNya = (props:InputNyaPropsType) => {
         }
     }
 
-
-
     return (
         <div className={s.wrapper}>
             <div className={s.div}>
                 <input  onKeyPress={HandlerOnKeyPress}  className={s.inputnya}  {...restProps} type="text"/>
-                {error && <span className={s.errorMessage}>{error}</span>}
+                {error && <span className={s.error}>{error}</span>}
             </div>
         </div>
     );

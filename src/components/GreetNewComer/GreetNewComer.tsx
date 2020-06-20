@@ -1,5 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
 import ButtonNya from "../MyNewButton/MyNewButton";
+import InputNya from "../MyNewInput/MyNewInput";
 
 
 type addNameProps = {
@@ -34,16 +35,15 @@ function GreetNewComer(props: addNameProps) {
     return (
         <div>
             <h3>Задание 3</h3>
-            <input
+            <InputNya
                 type="text"
                 value={name}
                 onChange={HandlerInput}
                 onKeyPress={HandlerOnKeyPress}/>
-            <ButtonNya onClick={HandlerHelloName}></ButtonNya>
+            <ButtonNya onClick={HandlerHelloName}/>
             <span>Количество имён {props.arrayName.length}</span>
         </div>
     )
-
 }
 
 
