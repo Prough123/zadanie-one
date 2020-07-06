@@ -1,10 +1,12 @@
-import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import './App.css';
 import MessageContent from "./components/messageContent/messageContent";
 import GreetNewComer from "./components/GreetNewComer/GreetNewComer"
 import {v1} from "uuid";
 import InputNya from "./components/MyNewInput/MyNewInput";
 import ButtonNya from "./components/MyNewButton/MyNewButton";
+import {HashRouter, Route} from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
 
 
 export type FilterValueType = "all" | "hight" | "low" | "middle";
@@ -43,7 +45,7 @@ function App() {
     let [error, setError] = useState<string | null>(null)
 
     function addName(titleName: string) {
-        if(titleName.trim() !== ""){
+        if (titleName.trim() !== "") {
             let nameCount = {id: v1(), name: titleName}
             setNames([...names, nameCount])
             setName("")
@@ -66,24 +68,33 @@ function App() {
     }
 
     const OnChange = (e: ChangeEvent<HTMLInputElement>) => {
-            setName(e.currentTarget.value)
-            setError('')
+        setName(e.currentTarget.value)
+        setError('')
     }
 
 
     return (
-        <div className="App">
-            <MessageContent
-                content={Profile}
-                myWorking={workForMessageContent}
-                removeDoings={removeDoings}
-                changeFilter={changeFilter}
-            />
-            <GreetNewComer arrayName={names} addName={addName}/>
-            <h1>Задание 4</h1>
-            <InputNya error={error} value={name} onChange={OnChange}  onEnter={() => addName(name)}/>
-            <ButtonNya />
-        </div>
+        <HashRouter>
+            <div className="App">
+                <NavBar/>
+                <div className="content">
+                    <Route path="/prejunior" render={() => <GreetNewComer arrayName={names}
+                                                                addName={addName}/>}/>
+                    <Route path="/prejunior" render={() => <InputNya error={error}
+                                                           value={name}
+                                                           onChange={OnChange}
+                                                           onEnter={() => addName(name)}/>}/>
+                    <Route path="/prejunior" render={() => <MessageContent content={Profile}
+                                                                 myWorking={workForMessageContent}
+                                                                 removeDoings={removeDoings}
+                                                                 changeFilter={changeFilter}/>}/>
+
+
+                    <Route  path="/prejunior"render={()=> <ButtonNya/>}/>
+                </div>
+
+            </div>
+        </HashRouter>
     );
 }
 
