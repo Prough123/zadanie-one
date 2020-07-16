@@ -76,7 +76,10 @@ function App() {
     return (
         <HashRouter>
             <div className="App">
-                <NavBar/>
+                <header className='header'>
+                    <span>Statuses</span>
+                    <NavBar/>
+                </header>
                 <div className="content">
                     <Route path="/prejunior" render={() => <GreetNewComer arrayName={names}
                                                                 addName={addName}/>}/>

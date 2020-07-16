@@ -1,3 +1,8 @@
 .App {
     height: 100vh;
 }
+
+
+.header:hover .NavBar_nav__1FWUI{
+    transform: translate(0, 0);
+}

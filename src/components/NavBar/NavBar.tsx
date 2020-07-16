@@ -11,6 +11,7 @@ const NavBar = () => {
             <NavLink className={ModuleNavbar.nav_item} to="/juniour+">juniour+</NavLink>
         </nav>
 
+
     )
 }
 
